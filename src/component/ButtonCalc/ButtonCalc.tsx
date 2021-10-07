@@ -4,12 +4,14 @@ import './ButtonCalc.css';
 
 interface Props {
     text: string;
-    type: 'white' | 'light-blue' | 'orange' | 'blue'
+    color: 'white' | 'light-blue' | 'orange' | 'blue',
+    action: (textNumber: string) => void,
 }
 
-export const ButtonCalc = ({text, type = 'white'}: Props) => {
+export const ButtonCalc = ({text, color = 'white', action}: Props) => {
     return (
-        <button className={`button ${type}`}>
+        <button className={`button ${color}`}
+                onClick={() => action(text)}>
             <span className="text">{text}</span>
         </button>
     );
